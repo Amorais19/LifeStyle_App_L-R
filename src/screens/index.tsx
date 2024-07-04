@@ -1,0 +1,1 @@
+export { Page1 as One } from "./Page1";
