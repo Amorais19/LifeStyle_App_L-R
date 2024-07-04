@@ -21,13 +21,26 @@ export const styles = StyleSheet.create({
     },
     cadastro: {
         flex: 1.3,
-        backgroundColor: '#FFF5',
         width: '100%',
+        backgroundColor: colors.blur,
+        alignItems: 'center',
         justifyContent: 'space-around',
+        borderTopStartRadius: 50,
+        borderTopEndRadius: 50
     },
     text: {
         textAlign: 'center',
-        fontSize: 24,
-        color: '#76ADAD'
+        fontSize: 30,
+        color: '#76ADAD',
+        fontWeight: '600'
+    },
+    space: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    input: {
+        width: 350,
+        backgroundColor: colors.square,
+        padding: 10
     }
 });

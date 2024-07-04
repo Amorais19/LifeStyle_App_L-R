@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { KeyboardAvoidingView, ImageBackground, View, Text, TextInput, Alert } from "react-native";
 import { ButtonEntrar, ButtonSlide, ButtonSlides } from "../../components/ButtonSlide";
-import { styleContainer } from "../../styles/globalstyles";
+import { styleContainer, colors } from "../../styles/globalstyles";
 import { styles } from "./styles"
-import { IPagina } from "../../../App";
+import { LoginTypes } from '../../navigations/login.navigations';
 
 export interface IRegister {
     name?: string
@@ -11,7 +11,7 @@ export interface IRegister {
     password?: string
 }
 
-export function Page5({ setPageI }: IPagina) {
+export function Page5({ navigation }: LoginTypes) {
     const fundo = require('../../assets/fundo.png')
     const [data, setData] = useState<IRegister>();
     async function handleRegister(){
@@ -36,7 +36,11 @@ export function Page5({ setPageI }: IPagina) {
             </View>
             <View style={styles.cadastro}>
                     <Text style={styles.text}>Cadastre-se</Text>
-                    <TextInput ></TextInput>
+                    <View style={styles.space}>
+                        <TextInput placeholderTextColor={colors.white} style={styles.input} placeholder='Nome:' onChangeText={(i) => handleChange({ name: i})} />
+                        <TextInput placeholderTextColor={colors.white} style={styles.input} placeholder='Email:' keyboardType='email-address' autoCapitalize='none' onChangeText={(i) => handleChange({ email: i})} />
+                        <TextInput placeholderTextColor={colors.white} style={styles.input} placeholder='Senha:' secureTextEntry={true} autoCapitalize='none' onChangeText={(i) => handleChange({ name:i})} />
+                    </View>
             </View>
         </ImageBackground>
     )
