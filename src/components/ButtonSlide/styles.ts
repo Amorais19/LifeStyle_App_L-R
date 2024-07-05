@@ -18,6 +18,7 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 40,
         paddingVertical: 10,
         borderRadius: 50,
+        alignItems: 'center'
     },
     buttonEntrar: {
         backgroundColor: 'transparent',

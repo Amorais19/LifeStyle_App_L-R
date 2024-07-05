@@ -4,7 +4,7 @@ export const colors = {
     black: '#000',
     white: '#FFF',
     blur: '#FFF5',
-    square: '#5F9898',
+    square: '#5F989890',
 }
 
 export const styleContainer = StyleSheet.create({

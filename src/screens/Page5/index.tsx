@@ -34,14 +34,26 @@ export function Page5({ navigation }: LoginTypes) {
                     <Text style={styles.title}>Life Style</Text>
                 </View>
             </View>
-            <View style={styles.cadastro}>
+            <KeyboardAvoidingView style={styles.cadastro}>
+                <View style={styles.cad}>
                     <Text style={styles.text}>Cadastre-se</Text>
-                    <View style={styles.space}>
-                        <TextInput placeholderTextColor={colors.white} style={styles.input} placeholder='Nome:' onChangeText={(i) => handleChange({ name: i})} />
-                        <TextInput placeholderTextColor={colors.white} style={styles.input} placeholder='Email:' keyboardType='email-address' autoCapitalize='none' onChangeText={(i) => handleChange({ email: i})} />
-                        <TextInput placeholderTextColor={colors.white} style={styles.input} placeholder='Senha:' secureTextEntry={true} autoCapitalize='none' onChangeText={(i) => handleChange({ name:i})} />
+                    <View style={styles.textinput}>
+                        <TextInput placeholderTextColor={colors.white} style={styles.input} placeholder='Nome' onChangeText={(i) => handleChange({ name: i})} />
                     </View>
-            </View>
+                    <View style={styles.textinput}>
+                        <TextInput placeholderTextColor={colors.white} style={styles.input} placeholder='Email' keyboardType='email-address' autoCapitalize='none' onChangeText={(i) => handleChange({ email: i})} />
+                    </View>
+                    <View style={styles.textinput}>
+                        <TextInput placeholderTextColor={colors.white} style={styles.input} placeholder='Senha' secureTextEntry={true} autoCapitalize='none' onChangeText={(i) => handleChange({ password:i})} />
+                    </View>
+                    <View>
+                        <ButtonSlides onPressI={(handleRegister)}>
+                            <Text style={styles.botao}>Concluir</Text>
+                        </ButtonSlides>
+                        <Text style={styles.textentrar}>Já possui conta? <ButtonEntrar onPressI={(handleGoBack)}><Text style={styles.textnegrito}>Entrar</Text></ButtonEntrar></Text>
+                    </View>
+                </View>
+            </KeyboardAvoidingView>
         </ImageBackground>
     )
 }
