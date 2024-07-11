@@ -47,10 +47,10 @@ export function Page5({ navigation }: LoginTypes) {
                         <TextInput placeholderTextColor={colors.white} style={styles.input} placeholder='Senha' secureTextEntry={true} autoCapitalize='none' onChangeText={(i) => handleChange({ password:i})} />
                     </View>
                     <View>
-                        <ButtonSlides onPressI={(handleRegister)}>
+                        <ButtonSlides onPressI={handleRegister}>
                             <Text style={styles.botao}>Concluir</Text>
                         </ButtonSlides>
-                        <Text style={styles.textentrar}>Já possui conta? <ButtonEntrar onPressI={(handleGoBack)}><Text style={styles.textnegrito}>Entrar</Text></ButtonEntrar></Text>
+                        <Text style={styles.textentrar}>Já possui conta? <ButtonEntrar onPressI={handleGoBack}><Text style={styles.textnegrito}>Entrar</Text></ButtonEntrar></Text>
                     </View>
                 </View>
             </KeyboardAvoidingView>

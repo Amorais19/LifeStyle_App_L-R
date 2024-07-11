@@ -21,7 +21,7 @@ export function Page6({ navigation }: LoginTypes) {
         }
     }
     function handleRegister() {
-        navigation.navigate("Register")
+        navigation.navigate('Register')
     }
     function handleChange(item: IAtuhenticate) {
         setData({ ...data, ...item });
@@ -46,9 +46,9 @@ export function Page6({ navigation }: LoginTypes) {
                             </View>
                         </View>
                         <View>
-                            <ButtonSlides onPressI={(handleSignIn)}><Text style={styles.botao}>Concluir</Text></ButtonSlides>
+                            <ButtonSlides onPressI={handleSignIn}><Text style={styles.botao}>Concluir</Text></ButtonSlides>
                             <Text style={styles.textentrar}>Não possui conta? </Text>
-                            <ButtonEntrar onPressI={(handleRegister)}><Text style={styles.textnegrito2}>Cadastrar-se</Text></ButtonEntrar>
+                            <ButtonEntrar onPressI={handleRegister}><Text style={styles.textnegrito2}>Cadastrar-se</Text></ButtonEntrar>
                         </View>
                 </View>
             </KeyboardAvoidingView>
