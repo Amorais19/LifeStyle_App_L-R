@@ -4,6 +4,9 @@ import { ButtonEntrar, ButtonSlide, ButtonSlides } from "../../components/Button
 import { styleContainer, colors } from "../../styles/globalstyles";
 import { styles } from "./styles"
 import { LoginTypes } from '../../navigations/login.navigations';
+import { apiUser } from '../../services/data';
+import { AxiosError } from 'axios';
+import { useAuth } from '../../hook/auth';
 
 export interface IRegister {
     name?: string
@@ -14,9 +17,19 @@ export interface IRegister {
 export function Page5({ navigation }: LoginTypes) {
     const fundo = require('../../assets/fundo.png')
     const [data, setData] = useState<IRegister>();
+    const { setLoading } = useAuth()
     async function handleRegister(){
         if (data?.email && data.name && data.password) {
-            console.log(data)
+            try {
+                const response = await apiUser.register(data)
+                Alert.alert(`${response.data.name} Cadastrado!`)
+                navigation.navigate("Login")
+            } catch (error) {
+                const err = error as AxiosError
+                const msg = err.response?.data as string
+                Alert.alert(msg)
+            }
+            setLoading(false)
         } else {
             Alert.alert("Preencha todos os campos!");
         }

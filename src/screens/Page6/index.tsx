@@ -4,6 +4,8 @@ import { ButtonEntrar, ButtonSlide, ButtonSlides } from "../../components/Button
 import { styleContainer, colors } from "../../styles/globalstyles";
 import { styles } from "./styles"
 import { LoginTypes } from '../../navigations/login.navigations';
+import { useAuth } from '../../hook/auth';
+import { AxiosError } from 'axios';
 
 export interface IAtuhenticate {
     email?: string;
@@ -13,9 +15,18 @@ export interface IAtuhenticate {
 export function Page6({ navigation }: LoginTypes) {
     const fundo = require('../../assets/fundo.png')
     const [data, setData] = useState<IAtuhenticate>();
+    const { signIn, setLoading } = useAuth()
     async function handleSignIn() {
         if (data?.email && data.password) {
-            console.log(data)
+            setLoading(true)
+            try {
+                await signIn(data)
+            } catch (error) {
+                const err = error as AxiosError
+                const msg = err.response?.data as string
+                Alert.alert(msg)
+            }
+            setLoading(false)
         } else {
             Alert.alert("Preencha todos os campos!");
         }
@@ -47,8 +58,7 @@ export function Page6({ navigation }: LoginTypes) {
                         </View>
                         <View>
                             <ButtonSlides onPressI={handleSignIn}><Text style={styles.botao}>Concluir</Text></ButtonSlides>
-                            <Text style={styles.textentrar}>Não possui conta? </Text>
-                            <ButtonEntrar onPressI={handleRegister}><Text style={styles.textnegrito2}>Cadastrar-se</Text></ButtonEntrar>
+                            <Text style={styles.textentrar}>Não possui conta? <ButtonEntrar onPressI={handleRegister}><Text style={styles.textnegrito}>Cadastrar-se</Text></ButtonEntrar> </Text>
                         </View>
                 </View>
             </KeyboardAvoidingView>

@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 30,
         color: '#76ADAD',
-        fontWeight: '600'
+        fontWeight: '600',
     },
     textinput: {
         justifyContent: 'center',
@@ -67,10 +67,5 @@ export const styles = StyleSheet.create({
     textnegrito: {
         fontWeight: '600',
         color: '#76ADAD'
-    },
-    textnegrito2: {
-        fontWeight: '600',
-        color: '#76ADAD',
-        fontSize: 18
     }
 });
