@@ -29,3 +29,11 @@ export function ButtonEntrar({ onPressI, children }: IButton) {
         </TouchableOpacity>
     )
 }
+
+export function ButtonOptions({ onPressI, children }: IButton) {
+    return (
+        <TouchableOpacity style={styles.buttonOptions} onPress={onPressI} >
+            {children}
+        </TouchableOpacity>
+    )
+}

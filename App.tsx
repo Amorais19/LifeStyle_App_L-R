@@ -5,6 +5,8 @@ import { Page4 } from './src/screens/Page4';
 import { Navigation } from './src/navigations'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { useFonts, Slackey_400Regular } from '@expo-google-fonts/slackey';
+import { AuthProvider } from './src/context/auth';
+import { StatusBar } from 'expo-status-bar';
 
 export interface IPagina {
   setPageI: Dispatch<SetStateAction<number>>
@@ -28,6 +30,13 @@ export default function App() {
   } else if (page == 4) {
     return <Page4 setPageI={setPage} />
   } else {
-    return <Navigation />
+    return (
+      <>
+      <AuthProvider>
+        <Navigation />
+      </AuthProvider>
+      <StatusBar style="auto" />
+      </>
+    )
   }
 };

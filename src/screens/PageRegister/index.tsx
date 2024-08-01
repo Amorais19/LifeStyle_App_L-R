@@ -14,7 +14,7 @@ export interface IRegister {
     password?: string
 }
 
-export function Page5({ navigation }: LoginTypes) {
+export function PageRegister({ navigation }: LoginTypes) {
     const fundo = require('../../assets/fundo.png')
     const [data, setData] = useState<IRegister>();
     const { setLoading } = useAuth()

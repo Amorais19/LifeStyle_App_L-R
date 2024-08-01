@@ -5,6 +5,7 @@ export const colors = {
     white: '#FFF',
     blur: '#FFF5',
     square: '#5F989890',
+    options: '#94CACA'
 }
 
 export const styleContainer = StyleSheet.create({

@@ -2,7 +2,7 @@ import React, {useState } from 'react';
 import { KeyboardAvoidingView, ImageBackground, View, Text, TextInput, Alert } from "react-native";
 import { ButtonEntrar, ButtonSlide, ButtonSlides } from "../../components/ButtonSlide";
 import { styleContainer, colors } from "../../styles/globalstyles";
-import { styles } from "./styles"
+import { styles } from "./styles";
 import { LoginTypes } from '../../navigations/login.navigations';
 import { useAuth } from '../../hook/auth';
 import { AxiosError } from 'axios';
@@ -12,7 +12,7 @@ export interface IAtuhenticate {
     password?: string;
 }
 
-export function Page6({ navigation }: LoginTypes) {
+export function PageLogin({ navigation }: LoginTypes) {
     const fundo = require('../../assets/fundo.png')
     const [data, setData] = useState<IAtuhenticate>();
     const { signIn, setLoading } = useAuth()

@@ -24,4 +24,10 @@ export const styles = StyleSheet.create({
         backgroundColor: 'transparent',
         paddingTop: 6
     },
+    buttonOptions: {
+        margin: 160,
+        backgroundColor: '#94CACA',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
   });
