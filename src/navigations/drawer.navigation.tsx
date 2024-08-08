@@ -14,7 +14,7 @@ export function DrawerNavigation() {
     const Drawer = createDrawerNavigator<DrawerParamList>()
     return (
         <Drawer.Navigator screenOptions={{
-            headerStyle: {backgroundColor: colors.square },
+            headerStyle: {backgroundColor: colors.green },
             headerTintColor: colors.white,
             drawerStyle: { backgroundColor: colors.square, },
             drawerActiveTintColor: colors.white,
@@ -22,7 +22,7 @@ export function DrawerNavigation() {
         }}>
             <Drawer.Screen name='Tab' component={TabNavigation} options={{
                 drawerLabel: 'Inicio',
-                headerTitle: 'Inicio',
+                headerTitle: 'Life Style',
             }} />
         </Drawer.Navigator>
     )

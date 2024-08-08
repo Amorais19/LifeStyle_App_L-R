@@ -6,3 +6,4 @@ export { PageRegister as Registrar } from "./PageRegister";
 export { PageLogin as Entrar } from "./PageLogin";
 export { PageInicio as Inicio } from "./PageInicio";
 export { PageList as List } from "./PageList";
+export { CadList as Cad } from './CadList'

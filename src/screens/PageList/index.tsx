@@ -1,13 +1,15 @@
-import { ImageBackground, View, Text, FlatList } from 'react-native';
+import { ImageBackground, View, Text, Image, FlatList, TouchableOpacity } from 'react-native';
 import { styleContainer, colors } from "../../styles/globalstyles";
 import { useEffect, useState } from 'react';
 import { apiMessage } from '../../services/data';
 import { IResponseMessage } from '../../services/data/Message';
 import { styles } from "./styles";
 import { useAuth } from '../../hook/auth';
+import { MessageTypes } from '../../navigations/message.navigation';
 
-export function PageList() {
+export function PageList({navigation}: MessageTypes) {
     const wallpapper = require('../../assets/wallpapper.png')
+    const mais = require('../../assets/mais.png')
     const [message, setMessage] = useState<IResponseMessage[]>([])
     const { setLoading } = useAuth()
     useEffect(() => {
@@ -42,6 +44,9 @@ export function PageList() {
                         keyExtractor={(item) => String(item.id)} />
                     )
                 }
+                <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('CadTarefa')}>
+                    <Image source={mais} />
+                </TouchableOpacity>
             </View>
         </ImageBackground>
     )

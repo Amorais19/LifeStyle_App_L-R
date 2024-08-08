@@ -13,7 +13,13 @@ export interface IRegister {
     email?: string
     password?: string
 }
-
+interface IError {
+    errors: {
+        field: string, 
+        message: string, 
+        rule: string
+    }[]
+}
 export function PageRegister({ navigation }: LoginTypes) {
     const fundo = require('../../assets/fundo.png')
     const [data, setData] = useState<IRegister>();
@@ -26,8 +32,9 @@ export function PageRegister({ navigation }: LoginTypes) {
                 navigation.navigate("Login")
             } catch (error) {
                 const err = error as AxiosError
-                const msg = err.response?.data as string
-                Alert.alert(msg)
+                console.log(err.response?.data)
+                const msg = err.response?.data as IError
+                Alert.alert(msg.errors[0].message)
             }
             setLoading(false)
         } else {
